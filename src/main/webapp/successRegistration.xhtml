@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Registration Confirmation Page</title>
+ 	<link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="resources/css/common.css" rel="stylesheet"/>
+</h:head>
+
+<h:body>
+    <f:view>
+     <div class="container">
+     </div>
+	 <div class="content" style="text-align: center">
+	  <div class="jumbotron">
+        <p>Successfully registered.</p>
+        <h:form>
+				<h4 class="form-signin-heading">Go back to 
+                	<h:commandLink value="Registration Page" action="#{appController.registration}"/>
+                </h4>
+        </h:form>
+      </div>	
+	 </div>   
+    </f:view>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>  
+</h:body>
+</html>

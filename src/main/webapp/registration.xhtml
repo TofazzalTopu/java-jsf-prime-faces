@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      
+    <h:head>
+        <title>SportSnapShare</title>
+        
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
+    	<link href="resources/css/common.css" rel="stylesheet"/>  
+    </h:head>
+    
+    <h:body>
+    	
+       <div class="containerReg">
+       </div>
+		<div class="content">
+		<h:form id="userForm" class="form-signin">	
+		
+		<h2 class="form-signin-heading">SportSnapShare Registration</h2>	       
+
+			<h:messages styleClass="errorMessage" style="color:red" globalOnly="true"/><br/>
+						
+			<h:inputText id="sname" type="text" value="#{appController.surname}" class="form-control" 
+			a:placeholder="Surname"  a:minlength="3" a:maxlength="20" required="true" requiredMessage="Please enter your last name"/>
+			<h:message for="sname" style="color:red" /><br/>	
+					
+			<h:inputText id="fname" type="text" value="#{appController.firstname}" class="form-control" 
+			a:placeholder="Firstname" a:minlength="3" a:maxlength="20" required="true" requiredMessage="Please enter your first name"/>
+			<h:message for="fname" style="color:red" /><br/>
+			
+			<div class="form-group">
+			<h:selectOneRadio id="gender" value="#{appController.gender}" required="true" requiredMessage="Please enter your gender">
+   				<f:selectItem itemValue="female" itemLabel="Female" /> 				
+   				<f:selectItem itemValue="male" itemLabel="Male" />
+			</h:selectOneRadio>
+			<h:message for="gender" style="color:red" />
+			</div>
+			
+			<h:inputText id="bday" type="text" value="#{appController.birthdate}" class="form-control" 
+			a:placeholder="Date of Birth (dd.mm.yyyy)" required="true" requiredMessage="Please enter your date of birth">
+    		<f:convertDateTime pattern="dd.MM.yyyy" />
+			</h:inputText>
+			<h:message for="bday" style="color:red" /><br/>
+			
+			<h:inputText id="email" type="text" value="#{appController.email}" class="form-control"
+			a:placeholder="E-Mail" a:minlength="3" a:maxlength="40" required="true" requiredMessage="Please enter your email" 
+			validatorMessage="Email is not valid">
+			<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+			</h:inputText>
+			<h:message for="email" style="color:red" /><br/>
+			
+			<h:inputText id="uname" type="text" value="#{appController.username}" class="form-control" 
+			a:placeholder="Username"  a:minlength="3" a:maxlength="10" required="true" requiredMessage="Please enter your username" />
+			<h:message for="uname" style="color:red" />
+			
+			<h:inputSecret id="pssw" type="text" value="#{appController.password}" class="form-control" 
+			a:placeholder="Password" a:minlength="3" a:maxlength="20" required="true" requiredMessage="Please enter your password"/>
+			<h:message for="pssw" style="color:red" /><br/>
+			
+			<h:commandButton class="btn btn-lg btn-primary btn-block" value="Submit" action="#{appController.saveUser}"/>
+		</h:form>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="resources/js/bootstrap.min.js"></script>
+
+    </h:body>
+</html>
